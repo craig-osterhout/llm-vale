@@ -27,10 +27,9 @@ base_directory = '/docs/content/guides/use-case/'
 
 # Find all markdown files and execute 'vale' on each
 for line in subprocess.run(['find', base_directory, '-name', '*.md'], stdout=subprocess.PIPE).stdout.decode().splitlines():
-    # Remove leading './' if present
-    file_path = os.path.abspath(line)
-    # Execute 'vale' with the absolute path of the file
-    output = subprocess.run(['vale', '--output', 'JSON', file_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    print(line)
+    # Execute 'vale'
+    output = subprocess.run(['vale', '--output', 'JSON', line], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     # Access the stdout of the completed process
     output_json = output.stdout
     # Load the JSON from the stdout
