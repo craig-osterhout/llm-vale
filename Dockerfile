@@ -33,5 +33,5 @@ COPY ./docs .
 COPY app.py .
 
 
-# Run the application.
+# Run Streamlit
 CMD python app.py
